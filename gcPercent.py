@@ -2,7 +2,7 @@
 """
 
 # get DNA sequence:
-dna = 'acgctcgcgcggcgatagctgatcgatcggcgcgctttttttttaaaag'
+dna = input("Enter a DNA sequence, please: ")
 no_a = dna.count('a')
 no_c = dna.count('c')
 no_g = dna.count('g')
