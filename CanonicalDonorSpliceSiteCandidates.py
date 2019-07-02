@@ -5,4 +5,4 @@ dna = input('Enter a DNA Sequence: ')
 pos = dna.find('gt', 0)
 while (pos>1) :
     print("Donor splice site at position %d"% pos)
-    
+    pos = dna.find('gt', pos+1)
