@@ -6,7 +6,9 @@ def has_stop_codon(dna) :
     for i in range(0,len(dna),3) :
         codon = dna[i:i+3].lower()
         if codon in stop_codons :
-            
+            stop_codon_found = True
+            break
+    return stop_codon_found
 if(has_stop_codon(dna))
     print("Input sequence has a stop codon")
 else:
