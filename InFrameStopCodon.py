@@ -5,7 +5,8 @@ def has_stop_codon(dna) :
     stop_codons = ['tga', 'tag', 'taa']
     for i in range(0,len(dna),3) :
         codon = dna[i:i+3].lower()
-
+        if codon in stop_codons :
+            
 if(has_stop_codon(dna))
     print("Input sequence has a stop codon")
 else:
