@@ -4,4 +4,3 @@ def gc(dna) :
     gcPercent = float(dna.count('c')+dna.count('C')+dna.count('g')+dna.count('G')*100/len(dna)-numbases)
     return gcPercent
 print(gc('AAAGTNNAGTCC'))
-    
