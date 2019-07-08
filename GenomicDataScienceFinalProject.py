@@ -48,7 +48,13 @@ class dna_tools ():
             except ValueError:
                 pos.append((-1, 0))
                 continue
-                
+
             for stop_code in stop_codes:
                 try:
-                
+                    index_stop_code = [n for n, x in enumerate(frame) if \
+                                       x == stop_code and n > min(start_pos)]
+                    stop_pos += index_stop_code
+                except ValueError:
+                    continue
+            if len(stop_pos) == 0:
+                pos.append((-1, 0))
