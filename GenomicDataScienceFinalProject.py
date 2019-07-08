@@ -75,4 +75,30 @@ class dna_tools ():
     def reverse_complement(dna):
         pairs = {"A":"T":"C":"G", "G":"C":"T":"A"}
         c_dna = [pairs[s] for s in dna]
-        return "".join(c_dna)[::-1]    
+        return "".join(c_dna)[::-1]
+
+    def orf_identifier (self):
+        orf = {}
+        for header, dna_seq in self.dict.items(): 
+            pos = self.find_pos(dna_seq)
+            orf[header] = pos
+        
+        id_key = [key for key in orf if "gi|142022655|gb|EQ086233.1|129" in key]
+        idx = id_key[0]  
+        
+        frame1, frame2, all_frames, id_frames = [], [], [], []
+        for key, dict_value in orf.items():
+            frame1 += dict_value["frame1"]
+            frame2 += dict_value["frame2"]
+            frames = dict_value["frame1"] + dict_value["frame2"] + dict_value["frame3"]
+            all_frames += frames
+            if key == idx:
+                id_frames = dict_value["frame1"] + dict_value["frame2"] + dict_value["frame3"]    
+        frame2_max_length = max(frame2, key = lambda x: x[1])
+        print(frame2_max_length[1])
+        frame1_max_length_pos = max(frame1, key = lambda x: x[1])
+        print(frame1_max_length_pos)
+        max_length = max(all_frames, key = lambda x: x[1])
+        print(max_length)
+        max_length_id = max(id_frames, key = lambda x: x[1])
+        print(max_length_id)
