@@ -62,6 +62,12 @@ class dna_tools ():
                  while len(start_pos) != 0:
                      start = min(start_pos)
                      try:
-                         end = min([stop for stop in stop_pos if stop > start])
+                        end = min([stop for stop in stop_pos if stop > start])
                      except ValueError:
-                         break    
+                        break
+                    s_pos = len("".join(frame[:start])) + 1
+                     pos.append((s_pos, (end - start + 1)*3))
+                     start_pos.remove(start) 
+            pos_dict["frame%d"%(i+1)] = pos 
+            
+        return pos_dict    
