@@ -16,3 +16,8 @@ class dna_tools ():
         number_of_records = len(self.dict)
         print(number_of_records)
     
+    def check_length(self)
+        length_dict = {}
+        for key,value in self.dict.items():
+            length_dict[key] = len(value)
+            
