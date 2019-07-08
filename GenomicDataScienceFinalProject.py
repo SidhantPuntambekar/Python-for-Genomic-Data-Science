@@ -32,10 +32,18 @@ class dna_tools ():
     def find_pos(self,dna):
         start_code = "ATG"
         stop_codes = ["TAA", "TAG", "TGA"]
+        pos_dict = {}
         for i in range(3):
             pos = []
             if i == 0 :
                 frame = [dna[j:j+3] for j in range(i, len(dna), 3)]
             else:
                 frame = [dna[:i]] + [dna[j:j+3] for j in range(i, len(dna), 3)]
+            start_pos = []
+            stop_pos = []
+            try:
+                index_start_pos = [m for m, y in enumerate(frame) if \
+                                  y == start_code]
+                start_pos += index_start_pos
+                
                 
