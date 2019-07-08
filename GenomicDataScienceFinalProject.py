@@ -30,4 +30,12 @@ class dna_tools ():
         print(record_min_length)
     
     def find_pos(self,dna):
-        
+        start_code = "ATG"
+        stop_codes = ["TAA", "TAG", "TGA"]
+        for i in range(3):
+            pos = []
+            if i == 0 :
+                frame = [dna[j:j+3] for j in range(i, len(dna), 3)]
+            else:
+                frame = [dna[:i]] + [dna[j:j+3] for j in range(i, len(dna), 3)]
+                
