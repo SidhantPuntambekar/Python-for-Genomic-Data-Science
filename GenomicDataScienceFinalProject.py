@@ -16,7 +16,7 @@ class dna_tools ():
         number_of_records = len(self.dict)
         print(number_of_records)
     
-    def check_length(self)
+    def check_length(self):
         length_dict = {}
         for key,value in self.dict.items():
             length_dict[key] = len(value)
@@ -26,3 +26,8 @@ class dna_tools ():
         min_length = min(lengths)
         record_max_length = [item for item in length if length_dict[item] == max_length]
         record_min_length = [item for item in length if length_dict[item] == min_length]
+        print(record_max_length)
+        print(record_min_length)
+    
+    def find_pos(self,dna):
+        
