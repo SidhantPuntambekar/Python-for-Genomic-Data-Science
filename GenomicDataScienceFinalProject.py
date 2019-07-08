@@ -58,3 +58,10 @@ class dna_tools ():
                     continue
             if len(stop_pos) == 0:
                 pos.append((-1, 0))
+             else:
+                 while len(start_pos) != 0:
+                     start = min(start_pos)
+                     try:
+                         end = min([stop for stop in stop_pos if stop > start])
+                     except ValueError:
+                         break    
