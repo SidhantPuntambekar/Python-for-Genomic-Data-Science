@@ -20,4 +20,9 @@ class dna_tools ():
         length_dict = {}
         for key,value in self.dict.items():
             length_dict[key] = len(value)
-            
+        
+        lengths = length_dict.values()
+        max_length = max(lengths)
+        min_length = min(lengths)
+        record_max_length = [item for item in length if length_dict[item] == max_length]
+        record_min_length = [item for item in length if length_dict[item] == min_length]
