@@ -102,3 +102,28 @@ class dna_tools ():
         print(max_length)
         max_length_id = max(id_frames, key = lambda x: x[1])
         print(max_length_id)
+
+    def find_repeats(self, dna, n):
+        repeats_set = {}
+        for header, dna_seq in self.dict.items():
+            repeats = self.find_repeats(dna_seq, n)
+            repeats_set[header] = repeats
+        combined_repeats = {}
+        for dict_value in repeats_set.values():
+            for key in dict_value:
+                if key not in combined_repeats:
+                    combined_repeats[key] = dict_value[key]
+                else:
+                    combined_repeats[key] = combined_repeats.get(key) \
+                                            + dict_value[key]
+        if n == 7:
+            most_freq_7 = max (combined_repeats.values())
+            print("Q8: The most frequently repeats occur: %d times \n"%most_freq_7)
+            most_freq_7_seq = [key for key in combined_repeats if \
+                       combined_repeats[key] == max(combined_repeats.values())]
+            print ("Q10: The following repeats occured most frequently: \n", most_freq_7_seq)
+        if n == 10:
+            count_most_freq_10 = len([value for value in combined_repeats.values()\
+                             if value == max(combined_repeats.values())])
+            print "Q9: The number of different 10-base sequences occur max times: %d \n"\
+                  %count_most_freq_10
