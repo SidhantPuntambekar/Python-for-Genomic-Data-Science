@@ -70,4 +70,9 @@ class dna_tools ():
                      start_pos.remove(start) 
             pos_dict["frame%d"%(i+1)] = pos 
             
-        return pos_dict    
+        return pos_dict
+
+    def reverse_complement(dna):
+        pairs = {"A":"T":"C":"G", "G":"C":"T":"A"}
+        c_dna = [pairs[s] for s in dna]
+        return "".join(c_dna)[::-1]    
