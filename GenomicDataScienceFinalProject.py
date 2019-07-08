@@ -12,3 +12,7 @@ class dna_tools ():
                 self.dict[header] = ""
         f_reader.close
     
+    def count_records(self):
+        number_of_records = len(self.dict)
+        print(number_of_records)
+    
