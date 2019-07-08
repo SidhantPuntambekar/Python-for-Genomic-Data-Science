@@ -45,5 +45,10 @@ class dna_tools ():
                 index_start_pos = [m for m, y in enumerate(frame) if \
                                   y == start_code]
                 start_pos += index_start_pos
+            except ValueError:
+                pos.append((-1, 0))
+                continue
                 
+            for stop_code in stop_codes:
+                try:
                 
